@@ -5,7 +5,7 @@ const store = {};
 
 const server = net.createServer((connection) => {
     console.log('Client connected');
-    connection.write('127.0.0.1:8000> '); // Initial prompt
+    connection.write('127.0.0.1:3000> '); // Initial prompt
 
     connection.on('data', (data) => {
         const input = data.toString().trim();
@@ -52,7 +52,7 @@ const server = net.createServer((connection) => {
         }
 
         // Send the response with a single prompt
-        connection.write(response + '127.0.0.1:8000> ');
+        connection.write(response + '127.0.0.1:3000> ');
     });
 
     connection.on('end', () => {
@@ -60,6 +60,6 @@ const server = net.createServer((connection) => {
     });
 });
 
-server.listen(8000, () => {
-    console.log('Server started on port 8000');
+server.listen(3000, () => {
+    console.log('Server started on port 3000');
 });
